@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import MainHeader from './main-header/main-header'
+import RedditData from './reddit-data/reddit-data'
+import RedditSearch from './reddit_search/reddit_search'
 
 class App extends Component {
   constructor(props) {
@@ -14,18 +16,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <MainPage/>
+        <MainHeader/>
         <RedditSearch setAppState={this.setState.bind(this)}/>
 
         { this.state.results ?
-          <SearchResultsList results={this.state.results} />
+          <RedditData results={this.state.results} />
           :
           undefined
         }
 
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
